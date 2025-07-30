@@ -1,3 +1,4 @@
+import { footer } from "../componentes/footer/footerComponent.js";
 import { header } from "../componentes/header/headerComponent.js";
 
 export function dashbaoardView() {
@@ -6,6 +7,7 @@ export function dashbaoardView() {
 
     //header
     seccion.appendChild(header());
+    seccion.appendChild(footer());
 
     return seccion;
 }

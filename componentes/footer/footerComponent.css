@@ -1,0 +1,24 @@
+.main-footer {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.25rem; /* Letra más grande */
+    border-top: 3px solid #ffffff33;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-footer a {
+    color: #00e6e6;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 1.3rem;
+}
+
+.main-footer a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #00e6e6;
+}
