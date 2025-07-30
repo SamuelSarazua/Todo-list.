@@ -2,18 +2,43 @@ header {
     display: grid;
     grid-template-columns: 1fr 20rem auto;
     align-items: center;
-    gap: 1rem;
-}
+    gap: 5rem;
+    border: 1px solid black;
+    padding: 1rem;}
 
 .div-tareas {
-    max-width: 30rem;
+    max-width: 15rem;
     height: 100%;
-    border: 1px solid black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .div-logo-usuario {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 100%;
+width: 4rem;
+height: 4rem;
+border-radius: 100%;
+}
+
+.div-tareas h2 {
+    font-size: 1.5rem;
+}
+
+.contador-tareas {
+    width: 2.5rem;
+    font-size: 2rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20%;
     border: 1px solid black;
+}
+
+.logo-usuario {
+    width: 4.6rem;
+    height: 4.6rem;
+    border-radius: 100%;
+border: 1px solid black;
 }
