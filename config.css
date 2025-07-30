@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+:root {
+    --color-rojo: red;
+    --color-verde: green;
+    --color-azul: blue;
+    --titulo-h1: 2.6rem;
+    --titulo-h2: 1.5rem;
+    --titulo-h3: 1.2rem;
+    --parrafo: 1rem;
+}
