@@ -14,7 +14,17 @@ export function dashbaoardView() {
     let seccion1 = document.createElement('section');
     seccion1.className = 'seccion-1';
     seccion1.appendChild(tareas());
-    seccion1.appendChild(informacion());
+    seccion1.appendChild(informacion(
+        {
+            indice: 1,
+            titulo: "Asignación de Proyecto",
+            descripcion: "Descripción detallada del proyecto asignado, incluyendo objetivos y expectativas.",
+            estado: "En Progreso",
+            fechaAs: "01/06/2025",
+            fechaEn: "30/06/2025",
+            listaIntegrantes: ["👩‍💻", "👨‍💻", "👩‍🎓"]
+        }
+    ));
     dashboard.appendChild(seccion1);
 
     dashboard.appendChild(footer());

@@ -42,3 +42,80 @@ border-radius: 100%;
     border-radius: 100%;
 border: 1px solid black;
 }
+
+/* 📱 Para móviles pequeños */
+@media (max-width: 375px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        grid-template-columns: none; /* reset */
+    }
+
+    .div-tareas {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .div-tareas h2 {
+        font-size: 1.3rem;
+    }
+
+    .contador-tareas {
+        font-size: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .div-logo-usuario,
+    .logo-usuario {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .main-footer {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .main-footer a {
+        font-size: 1.1rem;
+    }
+}
+
+/* 📲 Para tablets */
+@media (min-width: 376px) and (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr 10rem auto;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .div-tareas h2 {
+        font-size: 1.4rem;
+    }
+
+    .contador-tareas {
+        font-size: 1.7rem;
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+
+    .div-logo-usuario,
+    .logo-usuario {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .main-footer {
+        font-size: 1.1rem;
+    }
+
+    .main-footer a {
+        font-size: 1.2rem;
+    }
+}

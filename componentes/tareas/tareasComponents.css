@@ -1,6 +1,14 @@
 .div-tareas1 {
-    border: 1px solid red;
-}
+    background-color: #fff;
+    padding: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem;
+    border: 1px solid #e0e0e0;}
 
 .tarea {
     display: grid;
@@ -36,6 +44,9 @@
     white-space: nowrap;
 }
 .div-estado.estado-completado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #c5f3cd;
     color: #1b5e20;
     padding: 4px 8px;
@@ -44,6 +55,9 @@
 }
 
 .div-estado.estado-pendiente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ffd6d6;
     color: #a10000;
     padding: 4px 8px;
@@ -52,6 +66,9 @@
 }
 
 .div-estado.estado-proceso {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #fff7c2;
     color: #946200;
     padding: 4px 8px;
@@ -94,4 +111,66 @@
 .div-eliminar:hover {
     background-color: #ffeaea;
     border-radius: 6px;
+}
+
+/* 📱 Para móviles pequeños (hasta 375px) */
+@media (max-width: 375px) {
+    .tarea {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, auto);
+        gap: 8px;
+        padding: 10px;
+        border: 1px solid #eee;
+    }
+
+    .div-numero,
+    .div-titulo,
+    .div-estado,
+    .div-fecha-asignacion,
+    .div-fecha-entrega,
+    .div-integrantes,
+    .div-eliminar {
+        width: 100%;
+        text-align: left;
+    }
+
+    .div-integrantes {
+        flex-wrap: wrap;
+    }
+
+    .emoji-integrante {
+        width: 26px;
+        height: 26px;
+        font-size: 16px;
+    }
+}
+
+/* 📲 Para tablets (376px a 768px) */
+@media (min-width: 376px) and (max-width: 768px) {
+    .tarea {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto auto auto;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .div-numero,
+    .div-titulo,
+    .div-estado,
+    .div-fecha-asignacion,
+    .div-fecha-entrega,
+    .div-integrantes,
+    .div-eliminar {
+        width: 100%;
+    }
+
+    .div-integrantes {
+        flex-wrap: wrap;
+    }
+
+    .emoji-integrante {
+        width: 28px;
+        height: 28px;
+        font-size: 17px;
+    }
 }
