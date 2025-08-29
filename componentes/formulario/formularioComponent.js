@@ -1,3 +1,4 @@
+// formularioComponent.js
 export function formularioTarea(onSubmit) {
     const form = document.createElement('form');
     form.className = 'formulario-tarea';
@@ -80,7 +81,6 @@ export function formularioTarea(onSubmit) {
     btnSubmit.textContent = 'Guardar Tarea';
     btnSubmit.className = 'btn-guardar';
     
-    // Agregar todos los elementos al formulario
     form.append(
         grupoTitulo,
         grupoEstado,
@@ -89,7 +89,7 @@ export function formularioTarea(onSubmit) {
         btnSubmit
     );
     
-    // Manejar el envío del formulario
+    // Envío del formulario
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         

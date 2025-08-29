@@ -1,35 +1,53 @@
-import { footer } from "../componentes/footer/footerComponent.js";
 import { header } from "../componentes/header/headerComponent.js";
+import { footer } from "../componentes/footer/footerComponent.js";
 import { tareas } from "../componentes/tareas/tareasComponents.js";
 import { informacion } from "../componentes/informacion/infoComponent.js";
 
-export function dashbaoardView() {
+export async function dashboard() {
+    try {
+        const res = await fetch("https://backend-todo-list-34qm.onrender.com/tareas");
+        const tareasDb = await res.json();
 
-    let dashboard  = document.createElement('section');
-    dashboard.className = 'dashboard';
+        // Contenedor principal
+        const main = document.createElement('main');
+        main.className = 'dashboard'; // Contenedor general del dashboard
 
-    //header
-    dashboard.appendChild(header());
+        // Header (fuera de seccion-1)
+        main.appendChild(header());
 
-    let seccion1 = document.createElement('section');
-    seccion1.className = 'seccion-1';
-    seccion1.appendChild(tareas());
-    seccion1.appendChild(informacion(
-        {
-            indice: 1,
-            titulo: "Asignación de Proyecto",
-            descripcion: "Descripción detallada del proyecto asignado, incluyendo objetivos y expectativas.",
-            estado: "En Progreso",
-            fechaAs: "01/06/2025",
-            fechaEn: "30/06/2025",
-            listaIntegrantes: ["👩‍💻", "👨‍💻", "👩‍🎓"]
+        // Contenedor exclusivo para tareas e informacion
+        const seccion = document.createElement('div');
+        seccion.className = 'seccion-1';
+
+        seccion.appendChild(tareas(tareasDb)); // Solo tareas dentro de seccion-1
+
+        if (tareasDb.length > 0) {
+            seccion.appendChild(informacion(tareasDb[0])); // Solo informacion dentro de seccion-1
         }
-    ));
-    dashboard.appendChild(seccion1);
 
-    dashboard.appendChild(footer());
+        // Agregar seccion-1 al main
+        main.appendChild(seccion);
 
-    return dashboard;
+        // Footer (fuera de seccion-1)
+        main.appendChild(footer());
+
+        return main;
+    } catch (err) {
+        console.error("Error cargando dashboard:", err);
+        return document.createTextNode("Error al cargar tareas");
+    }
 }
 
-document.body.appendChild(dashbaoardView());
+// Renderizado
+export async function renderDashboard() {
+    const app = document.getElementById("app") || document.body;
+    const dash = await dashboard();
+    app.innerHTML = "";
+    if (dash instanceof Node) {
+        app.appendChild(dash);
+    } else {
+        console.error("dashboard() no retornó un Node válido");
+    }
+}
+
+renderDashboard();

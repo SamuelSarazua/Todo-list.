@@ -1,66 +1,31 @@
-export function tarea(indice, titulo, estado, fechaAs, fechaEn, listaIntegrantes) {
+export function tarea(item) {
     let div = document.createElement('div');
     div.className = 'tarea';
 
-    // número de tarea
-    let divNumero = document.createElement('div');
-    divNumero.className = 'div-numero';
-    divNumero.textContent = indice;
+    // Título
+    let titulo = document.createElement('h3');
+    titulo.textContent = item.nombre;
+    div.appendChild(titulo);
 
-    // título de la tarea
-    let divTitulo = document.createElement('h3');
-    divTitulo.className = 'div-titulo';
-    divTitulo.textContent = titulo;
+    // Estado
+    let estado = document.createElement('span');
+    estado.textContent = item.estado_tarea;
+    div.appendChild(estado);
 
-    // estado de la tarea
-    let divEstado = document.createElement('span');
-    divEstado.className = 'div-estado';
-    divEstado.textContent = estado;
+    // Fecha asignada
+    let fechaAsignada = document.createElement('p');
+    fechaAsignada.textContent = `Asignada: ${item.fecha_asignada}`;
+    div.appendChild(fechaAsignada);
 
-    // estilos dinámicos según el estado
-    if (estado.toLowerCase() === 'completado') {
-        divEstado.classList.add('estado-completado');
-    } else if (estado.toLowerCase() === 'pendiente') {
-        divEstado.classList.add('estado-pendiente');
-    } else if (estado.toLowerCase() === 'en proceso') {
-        divEstado.classList.add('estado-proceso');
-    }
+    // Fecha de entrega
+    let fechaEntrega = document.createElement('p');
+    fechaEntrega.textContent = `Entrega: ${item.fecha_entrega}`;
+    div.appendChild(fechaEntrega);
 
-    // fecha de asignación
-    let divFechaAs = document.createElement('span');
-    divFechaAs.className = 'div-fecha-asignacion';
-    divFechaAs.textContent = fechaAs;
-
-    // fecha de entrega
-    let divFechaEn = document.createElement('span');
-    divFechaEn.className = 'div-fecha-entrega';
-    divFechaEn.textContent = fechaEn;
-
-    // listado de integrantes
-    let divIntegrantes = document.createElement('div');
-    divIntegrantes.className = 'div-integrantes';
-    listaIntegrantes.forEach(emoji => {
-        let span = document.createElement('span');
-        span.className = 'emoji-integrante';
-        span.textContent = emoji;
-        divIntegrantes.appendChild(span);
-    });
-
-    // botón de eliminar
-    let divEliminar = document.createElement('div');
-    divEliminar.className = 'div-eliminar';
-    let emojiEliminar = document.createElement('span');
-    emojiEliminar.textContent = '🗑️';
-    divEliminar.appendChild(emojiEliminar);
-
-    // agregar todos al contenedor
-    div.appendChild(divNumero);
-    div.appendChild(divTitulo);
-    div.appendChild(divEstado);
-    div.appendChild(divFechaAs);
-    div.appendChild(divFechaEn);
-    div.appendChild(divIntegrantes);
-    div.appendChild(divEliminar);
+    // Integrantes (si existe)
+    let integrantes = document.createElement('p');
+    integrantes.textContent = item.integrantes || 'Ninguno';
+    div.appendChild(integrantes);
 
     return div;
 }
